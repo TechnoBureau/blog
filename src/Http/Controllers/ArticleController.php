@@ -4,6 +4,7 @@ namespace TechnoBureau\Blog\Http\Controllers;
 
 use Illuminate\Http\Request;
 use TechnoBureau\Blog\Models\Article;
+use TechnoBureau\UI\Http\Controllers\TechnoBureauController;
 
 class ArticleController extends TechnoBureauController
 {

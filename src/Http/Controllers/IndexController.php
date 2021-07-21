@@ -1,9 +1,10 @@
 <?php
 
-namespace TechnoBureau\Http\Controllers;
+namespace TechnoBureau\Blog\Http\Controllers;
 
 use Illuminate\Http\Request;
-use TechnoBureau\Models\Article;
+use TechnoBureau\UI\Http\Controllers\TechnoBureauController;
+use TechnoBureau\Blog\Models\Article;
 
 class IndexController extends TechnoBureauController
 {

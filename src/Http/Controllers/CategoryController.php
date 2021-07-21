@@ -1,10 +1,11 @@
 <?php
 
-namespace TechnoBureau\Http\Controllers;
+namespace TechnoBureau\Blog\Http\Controllers;
 
 use Illuminate\Http\Request;
-use TechnoBureau\UI\Models\Category;
+use TechnoBureau\Blog\Models\Category;
 use Illuminate\Support\Str;
+use TechnoBureau\UI\Http\Controllers\TechnoBureauController;
 use TechnoBureau\UI\Models\Authorizable;
 
 class CategoryController extends TechnoBureauController

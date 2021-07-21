@@ -1,10 +1,10 @@
 <?php
 
-namespace TechnoBureau\Models;
+namespace TechnoBureau\Blog\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use TechnoBureau\Casts\Url;
+use TechnoBureau\Blog\Casts\Url;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class Article extends Model
