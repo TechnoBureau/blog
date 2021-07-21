@@ -1,0 +1,47 @@
+{
+    "name": "technobureau/blog",
+    "description": "TechnoBureau Blog views and complete authentication system.",
+    "keywords": ["TechnoBureau", "blog","laravel-blog"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ganapathi Chidambaram",
+            "email": "ganapathi.rj@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/console": "^8.42",
+        "illuminate/filesystem": "^8.42",
+        "illuminate/support": "^8.42",
+        "illuminate/validation": "^8.42",
+        "technobureau/ui": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "TechnoBureau\\Blog\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan ui bootstrap --auth",
+            "php artisan ui technobureau --auth",
+            "php artisan ui tb-blog --auth",
+            "php artisan vendor:publish ",
+            "npm install && npm run prod"
+        ]
+    },
+    "extra": {
+        
+        "laravel": {
+            "providers": [
+                "TechnoBureau\\Blog\\Providers\\UIPresetServiceProvider",
+                "TechnoBureau\\Blog\\Providers\\TechnoBureauRouteServiceProvider",
+                "TechnoBureau\\Blog\\Providers\\TechnoBureauAuthServiceProvider"
+            ]
+        }
+    }
+}
