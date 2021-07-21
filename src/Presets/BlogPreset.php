@@ -27,12 +27,26 @@ class BlogPreset extends Preset
     {
 
         $this->ensureDirectoriesExist();
+        static::updateSass();
         $this->exportViews();
 
         if ( ! isset($this->option['views']) ) {
             $this->exportBackend();
         }
         static::removeNodeModules();
+    }
+    /**
+     * Update the Sass files for the application.
+     *
+     * @return void
+     */
+    protected static function updateSass()
+    {
+        (new Filesystem)->ensureDirectoryExists(resource_path('scss'));
+
+        copy(__DIR__.'/../../bootstrap-stubs/technobureau.scss', resource_path('scss/technobureau.scss'));
+        copy(__DIR__.'/../../bootstrap-stubs/blog.scss', resource_path('scss/blog.scss'));
+
     }
     /**
      * Export the authentication views.
@@ -80,6 +94,12 @@ class BlogPreset extends Preset
             });
     }
 
+    protected function getViewPath($path)
+    {
+        return implode(DIRECTORY_SEPARATOR, [
+            config('view.paths')[0] ?? resource_path('views'), $path,
+        ]);
+    }
 
     /**
      * Create the directories for the files.

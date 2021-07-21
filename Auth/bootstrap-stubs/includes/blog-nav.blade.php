@@ -4,7 +4,7 @@
             <div class="nav">
                 <div class="sb-sidenav-menu-heading"></div>
                 @foreach($categories as $category)
-                <a class="nav-link collapsed" href="@if($category->childs->isEmpty()) /{{ $category->slug }}/ @else#@endif" data-bs-toggle="collapse" data-bs-target="#{{ $category->name}}_Layout" aria-expanded="false" aria-controls="{{ $category->name}}_Layout">
+                <a class="nav-link collapsed" href="/{{ $category->slug }}/" data-bs-toggle="collapse" data-bs-target="#{{ Str::slug($category->name)}}_layout" aria-expanded="false" aria-controls="{{ Str::slug($category->name)}}_layout">
                     <div class="sb-nav-link-icon"></div>{{ $category->name}}
                 @if(!$category->childs->isEmpty())
                 <div class="sb-sidenav-collapse-arrow">
@@ -16,8 +16,9 @@
                 </a>
                 
                 @if(!$category->childs->isEmpty())
-                <div class="collapse" id="{{ $category->name}}_Layout" aria-labelledby="{{ $category->name}}" data-bs-parent="#sidenavAccordion">
+                <div class="collapse" id="{{ Str::slug($category->name)}}_layout" aria-labelledby="{{ $category->name}}" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="/{{ $category->slug }}/">All</a>
                         @foreach($category->childs as $subcategory)
                         <a class="nav-link" href="/{{ $subcategory->slug }}/">{{$subcategory->name}}</a>
                         @endforeach

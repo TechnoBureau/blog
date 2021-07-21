@@ -1,24 +1,12 @@
 <!-- Example row of columns -->
 <div class="container"><div class="row">
+    @foreach ($articles as $article)
     <div class="col-md-4 order-sm-1">
-    <h2>Heading</h2>
-    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+    <h2>{{ $article->title }}</h2>
+    <p>{!! Str::words(strip_tags(Str::words($article->body,100),'<br><b></b>'),50,' ...') !!}... </p>
     </div>
     <div class="col-md-4 order-sm-2">
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <p><a class="btn btn-secondary" href="{{ $article->slug }}" role="button">Read More &raquo;</a></p>
     </div>
-    <div class="col-md-4 order-sm-1">
-    <h2>Heading</h2>
-    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-    </div>
-    <div class="col-md-4 order-sm-2">
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-    </div>
-    <div class="col-md-4 order-sm-1">
-    <h2>Heading</h2>
-    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    </div>
-    <div class="col-md-4 order-sm-2">
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-    </div>
+    @endforeach
 </div></div>
