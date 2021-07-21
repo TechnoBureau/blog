@@ -20,6 +20,6 @@ class Article extends Model
     }
     public function category()
     {
-        return $this->belongsTo('TechnoBureau\Models\Category','category_id','id');
+        return $this->belongsTo('TechnoBureau\Blog\Models\Category','category_id','id');
     }
 }
