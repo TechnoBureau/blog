@@ -3,7 +3,7 @@
 namespace TechnoBureau\Blog\Providers;
 
 use App\Providers\RouteServiceProvider as ServiceProvider;
-use TechnoBureau\Models\Category;
+use TechnoBureau\Blog\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 class TechnoBureauRouteServiceProvider extends ServiceProvider

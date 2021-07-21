@@ -4,7 +4,7 @@ namespace TechnoBureau\Blog\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
-use TechnoBureau\Models\Category;
+use TechnoBureau\Blog\Models\Category;
 
 class TechnoBureauBlogServiceProvider extends ServiceProvider
 {
