@@ -38,9 +38,9 @@
         
         "laravel": {
             "providers": [
-                "TechnoBureau\\Blog\\Providers\\UIPresetServiceProvider",
+                "TechnoBureau\\Blog\\Providers\\BlogPresetServiceProvider",
                 "TechnoBureau\\Blog\\Providers\\TechnoBureauRouteServiceProvider",
-                "TechnoBureau\\Blog\\Providers\\TechnoBureauAuthServiceProvider"
+                "TechnoBureau\\Blog\\Providers\\TechnoBureauBlogServiceProvider"
             ]
         }
     }
