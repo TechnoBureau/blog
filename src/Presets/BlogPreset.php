@@ -58,7 +58,8 @@ class BlogPreset extends Preset
         $filesystem = new Filesystem();
         collect($filesystem->allFiles(__DIR__.'/../../Auth/bootstrap-stubs'))
             ->each(function (SplFileInfo $file) use ($filesystem) {
-                //if($file->getrelativePath()!='') //Avoid skipping welcome blade overwritten.
+		(new Filesystem)->ensureDirectoryExists(base_path('resources/views/'.$file->getrelativePath()));	    
+		    //if($file->getrelativePath()!='') //Avoid skipping welcome blade overwritten.
                     $filesystem->copy(
                         $file->getPathname(),
                         base_path('resources/views/'.$file->getrelativePathname())

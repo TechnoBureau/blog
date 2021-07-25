@@ -24,8 +24,8 @@
                         </div>
                     <div class="postedBy">
                         <span class="posted iconKey">
-                            <a href="/authors/{{ \Str::slug($article->user->name) }}/" class="username" itemprop="author" >{!! $article->user->name !!}</a> at
-                            <a href="/{{$article->category->slug}}/{{$article->slug}}/article{{$article->id}}.html" itemprop="datePublished"> {!!$article->created_at->format('h:i A') !!}</a>
+                            By <a href="/authors/{{ \Str::slug($article->user->name) }}/" class="username" itemprop="author" >{!! $article->user->name !!}</a> at
+                            <span class="fst-italic" itemprop="datePublished"> {!!$article->created_at->format('h:i A') !!}</span>
                         </span>
                     </div>
                 <div class="ArticleText" itemprop="articleBody">{!! Str::words(strip_tags(Str::words($article->body,100),'<br><b></b>'),50,' ...') !!}</div>
@@ -36,12 +36,19 @@
                     </div>
 
                     <div class="float-end continue">
-                        <a class="iconKey button" href="/{{$article->category->slug}}/{{$article->slug}}/article{{$article->id}}.html"> Continue reading... </a>
+                        <a class="iconKey button" href="/{{$article->category->slug}}/{{$article->slug}}.{{$article->id}}/"> Continue reading... </a>
                     </div>
                 </div>
             </div>
         </div>
         @endforeach
+        @if($articles->isEmpty())
+        <div class="col-md-12 pt-2 pb-2 RecentArticle">
+            <div class="card">
+                <div class="card-body justify-content-start text-center fs-4"> No Results found..</div>
+            </div>
+        </div>
+        @endif
     </div>
 </div>
 
