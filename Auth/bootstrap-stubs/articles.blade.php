@@ -40,6 +40,9 @@
                     </div>
                 </div>
             </div>
+	</div>
+	<div class="mt-auto d-flex justify-content-center w-100">
+            {{ $articles->links() }}
         </div>
         @endforeach
         @if($articles->isEmpty())
