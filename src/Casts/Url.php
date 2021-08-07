@@ -3,6 +3,7 @@
 namespace TechnoBureau\Blog\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Doctrine\RST\Parser;
 
 class Url implements CastsAttributes
 {
@@ -17,7 +18,9 @@ class Url implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
-        return urldecode($value);
+        $parser = new Parser();
+        $document = $parser->parse(urldecode($value));
+        return $document->render();
     }
 
     /**

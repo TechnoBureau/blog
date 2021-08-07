@@ -28,7 +28,11 @@
                             <span class="fst-italic" itemprop="datePublished"> {!!$article->created_at->format('h:i A') !!}</span>
                         </span>
                     </div>
-                <div class="ArticleText" itemprop="articleBody">{!! Str::words(strip_tags(Str::words($article->body,100),'<br><b></b>'),50,' ...') !!}</div>
+                <div class="ArticleText" itemprop="articleBody">
+                    <div class="section">
+                        {!! Str::words(Str::words(strip_tags($article->body,'<br><b><p><h1><h2><h3>'),100),90,' ...') !!}
+                    </div>
+                </div>
                 </div>
                 <div class="card-footer justify-content-start ArticleFooter">
                     <div class="float-start categories" itemprop="articleSection">

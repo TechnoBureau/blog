@@ -34,7 +34,7 @@ class IndexController extends TechnoBureauController
         //     ->orderBy('id','DESC')->get(3);
         //     return $data;
         // });
-        $articles = Article::select('id','title','body','slug')
+        $articles = Article::select('id','title','body','slug','category_id')
                     ->where('active',1)
                     ->orderBy('id','DESC')->get(3);
 

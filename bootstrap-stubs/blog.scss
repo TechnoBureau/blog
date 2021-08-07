@@ -72,3 +72,34 @@
     margin-inline-end: 0px;
     padding-inline-start: 10px;
 }
+.section {
+    h1 {
+        display: none;
+    }
+    h2,h3,h4,h5,h6 {
+        font-size: 1.2rem;
+        line-height: 2;
+        text-decoration-line: underline;
+    }
+    code {
+        background: #f4f4f4;
+        border: 1px solid #ddd;
+        border-left: 3px solid #f36d33;
+        color: #666;
+        page-break-inside: avoid;
+        font-family: monospace;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 1em;
+        margin-top: 1em;
+        max-width: 100%;
+        overflow: auto;
+        padding: 1em 1.5em;
+        display: block;
+        word-wrap: break-word;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        counter-reset: line;
+        margin-left: 30px;
+    }
+}

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use TechnoBureau\Blog\Models\Article;
 use TechnoBureau\UI\Http\Controllers\TechnoBureauController;
 use Config;
+use Doctrine\RST\Parser;
 
 class ArticleController extends TechnoBureauController
 {
@@ -51,6 +52,7 @@ class ArticleController extends TechnoBureauController
                     ->whereIn('category_id',$categoryID)
                     ->where('id',$id)
                     ->find($id);
+
         if( ( $request->is('api/*') || $request->ajax() ) )
             return response()->json($article); 
         return view('article.index',compact('view','article'));                
